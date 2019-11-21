@@ -76,8 +76,23 @@ app.get("/api/updateFavorites", function(req, res)
             if (error) throw err;
         }); //query
         
-        //close connection
-        //connection.close();
+        //handle errors during connection
+        //eg 'PROTOCOL_CONNECTION_LOST'
+        connection.on('error', function(err) 
+        {
+            console.log(err.code);
+        });
+        
+        //handle errors for end of connection
+        //eg. ER_TOO_MANY_USER_CONNECTIONS:
+        connection.end(function(err) 
+        {
+            if(err)
+            {
+                console.log(err.message);
+            }
+        });
+        
     }); //connect
     
     res.send("It works.");
@@ -99,7 +114,24 @@ app.get("/displayKeywords", async function(req, res)
             if (err) throw err;
             res.render("favorites",{"rows": result});
         }); //query
-    //connection.close();
+    
+        //handle errors during connection
+        //eg 'PROTOCOL_CONNECTION_LOST'
+        connection.on('error', function(err) 
+        {
+            console.log(err.code);
+        });
+        
+        //handle errors for end of connection
+        //eg. ER_TOO_MANY_USER_CONNECTIONS:
+        connection.end(function(err) 
+        {
+            if(err)
+            {
+                console.log(err.message);
+            }
+        });
+    
     }); //connect
     
 }); //displayKeywords
@@ -119,7 +151,23 @@ app.get("/api/displayFavorites", function(req, res)
             res.send(results);
         }); //query
         
-    //connection.close();
+        //handle errors during connection
+        //eg 'PROTOCOL_CONNECTION_LOST'
+        connection.on('error', function(err) 
+        {
+            console.log(err.code);
+        });
+        
+        //handle errors for end of connection
+        //eg. ER_TOO_MANY_USER_CONNECTIONS:
+        connection.end(function(err) 
+        {
+            if(err)
+            {
+                console.log(err.message);
+            }
+        });
+    
     }); //connect
     
 }); //displayKeywords

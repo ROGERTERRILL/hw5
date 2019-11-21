@@ -84,18 +84,7 @@ module.exports =
             port: 3306
         });
         
-        connection.on('error', function(err) 
-        {
-            console.log(err.code);
-        });
         
-        connection.end(function(err) 
-        {
-            if(err)
-            {
-                console.log(err.message);
-            }
-        });
         
         return connection;
     } //createConnection
