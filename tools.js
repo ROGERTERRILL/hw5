@@ -89,6 +89,14 @@ module.exports =
             console.log(err.code);
         });
         
+        connection.end(function(err) 
+        {
+            if(err)
+            {
+                console.log(err.message);
+            }
+        });
+        
         return connection;
     } //createConnection
     
