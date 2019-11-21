@@ -13,13 +13,13 @@ $(document).ready(function()
         if ($(this).attr("src") == "img/favorite.png")
         {
             $(this).attr("src","img/favorite_on.png");
-            console.log(description);
+            //console.log(description);
             updateFavorite("add", parseInt(productID.replace("(","")), imageURL, description, parseFloat(price.replace("$","")));
         }
         else
         {
             $(this).attr("src","img/favorite.png");
-            //updateFavorite("delete", productID);
+           updateFavorite("delete", parseInt(productID.replace("(","")));
         }
         
     }); //favorite onClick  
@@ -66,7 +66,8 @@ $(document).ready(function()
                                     if ($(this).attr("src") == "img/favorite_on.png")
                                     {
                                         $(this).attr("src","img/favorite.png");
-                                        updateFavorite("delete", productID);
+                                        console.log("pr: " + parseInt(productID.replace("(","")));
+                                        updateFavorite("delete", parseInt(productID.replace("(","")));
                                     }
                                     else
                                     {

@@ -77,7 +77,7 @@ app.get("/api/updateFavorites", function(req, res)
         }); //query
         
         //close connection
-        connection.close;
+        //connection.close();
     }); //connect
     
     res.send("It works.");
@@ -99,7 +99,7 @@ app.get("/displayKeywords", async function(req, res)
             if (err) throw err;
             res.render("favorites",{"rows": result});
         }); //query
-    connection.close;
+    //connection.close();
     }); //connect
     
 }); //displayKeywords
@@ -119,7 +119,7 @@ app.get("/api/displayFavorites", function(req, res)
             res.send(results);
         }); //query
         
-    connection.close;
+    //connection.close();
     }); //connect
     
 }); //displayKeywords
