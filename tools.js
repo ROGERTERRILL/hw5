@@ -53,13 +53,16 @@ module.exports =
                     //console.log(parsedData);
                     var items = [];
                     //dont iterate array if no products returned
-                    if (parsedData.searchReport.totalProducts > 0 || parsedData == null)
+                    if (parsedData.searchReport)
+                    {
+                    if (parsedData.searchReport.totalProducts > 0)
                     {
                         for (let i=0;i < parsedData.skus.length ;i ++)
                         {
                             //add items to array
                             items.push(parsedData.skus[i]);
                         }
+                    }
                     }
                     //return array
                     resolve(items);
